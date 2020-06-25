@@ -4,7 +4,7 @@ import { animated, useSpring } from "react-spring"
 import { Town } from "../types"
 import { Link } from "../../../components/index"
 import Location from "../../../assets/icons/location.inline.svg"
-import Phone from "../../../assets/icons/phone.inline.svg"
+// import Phone from "../../../assets/icons/phone.inline.svg"
 
 interface CenterInfoProps {
   town: Town
@@ -15,31 +15,46 @@ const TownInfo: React.FunctionComponent<{ town: Required<Town> }> = ({
 }) => (
   <>
     <div>
+      {/* <div className="text-base md:text-xl">
+        <p className="font-semibold pr-12 align-top">Nombre</p>
+        <p>{town.pueblo}</p>
+      </div> */}
+      {/* <div className="text-base md:text-xl pt-6">
+        <p className="font-semibold pr-12 align-top">Dirección</p>
+        <p>{town.direccion}</p>
+      </div> */}
       <div className="flex text-base md:text-xl">
         <p className="font-bold pr-12 align-top w-1/4">Dirección</p>
         <p className="w-3/4">{town.direccion}</p>
       </div>
-      <div className="flex text-base md:text-xl pt-6">
+      {/* <div className="flex text-base md:text-xl pt-6">
         <p className="font-bold pr-12 align-top w-1/4">Teléfono</p>
         <p className="w-3/4">{town.telefono}</p>
+      </div> */}
+      <div className="flex text-base md:text-xl pt-6">
+        <p className="font-bold pr-12 align-top w-1/4">Horario</p>
+        <p className="w-3/4">
+          Lunes a Sabado <br /> 8:00 am - 4:00 pm
+        </p>
       </div>
       <div className="flex text-base md:text-xl pt-6">
         <p className="font-bold pr-12 align-top w-1/4">Servicios</p>
         <p className="w-3/4">
-          {town.servicios.map(s => (
+          Nuevas inscripciones, reactivaciones, reubicaciones y transferencias
+          {/* {town.servicios.map(s => (
             <span key={s} className="block">
               {s}
             </span>
-          ))}
+          ))} */}
         </p>
       </div>
     </div>
-    {town.JIPIsla ? (
-      <p className="mt-4">
-        * En este centro puede realizar cualquier trámite electoral sin importar
-        el precinto en el cual reside.
-      </p>
-    ) : null}
+    {/* {town.JIPIsla ? ( */}
+    <p className="mt-4">
+      * En este centro puede realizar cualquier trámite electoral sin importar
+      el precinto en el cual reside.
+    </p>
+    {/* ) : null} */}
     <div className="mt-8">
       <Link
         className="w-full text-center"
@@ -53,7 +68,7 @@ const TownInfo: React.FunctionComponent<{ town: Required<Town> }> = ({
         </span>
       </Link>
     </div>
-    <div className="mt-4">
+    {/* <div className="mt-4">
       <Link
         className="w-full text-center"
         to={`tel:${town.telefono}`}
@@ -64,7 +79,7 @@ const TownInfo: React.FunctionComponent<{ town: Required<Town> }> = ({
           sobre esta Junta de Inscripción Permanente
         </span>
       </Link>
-    </div>
+    </div> */}
   </>
 )
 
@@ -84,7 +99,7 @@ export const CenterInfo: React.FunctionComponent<CenterInfoProps> = ({
     )
   } else {
     return (
-      <div className="border-t border-separator p-4 overflow-y-auto lg:ml-12 lg:m-0 lg:border-t-0">
+      <div className="border-t border-separator p-4 w-full overflow-y-auto lg:ml-12 lg:m-0 lg:border-t-0">
         <animated.div
           className="flex flex-col justify-center w-full"
           style={props}

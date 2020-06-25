@@ -35,7 +35,7 @@
     "voter-important-guide2": "Si te has mudado recientemente es importante renovar tu tarjeta electoral para ejercer tu voto en el municipio y Centro de Votación correspondiente.",
     "voter-status-verify": "Verificar mi estatus",
     "voter-status-note": "Este enlace te llevará a la página de la Comisión Estatal de  Elecciones. Allí podrás llenar el formulario que te dirá cuál es el estatus de tu registro electoral.",
-    "appointment-note": "Saca tu cita para Inscribirte, llama ahora"
+    "register-to-vote-today": "Saca tu tarjeta electoral, sin cita previa, en la JIP más cercana a ti."
   },
   "nav": {
     "sign-up": "Inscríbete",
@@ -43,7 +43,8 @@
     "make-appointment": "Saca tu cita",
     "voter-status": "Estatus Electoral",
     "voter-action": "Sal a votar",
-    "vote-type1": "Voto adelantado y voto ausente"
+    "vote-type1": "Voto adelantado y voto ausente",
+    "enrollment-centers": "Juntas de Inscripción Permanentes"
   },
   "footer": {
     "contribute": "¿Cómo puedo contribuir al proyecto?",

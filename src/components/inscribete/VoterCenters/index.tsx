@@ -7,7 +7,9 @@ import Dropdown from "react-dropdown-aria"
 import { LetterList } from "./LetterList"
 import { TownList } from "./TownList"
 import { voterCenters } from "./constants"
+// import { AvailableCentersDirectory } from "../MakeAppointment/constants"
 import { CenterInfo } from "./CenterInfo"
+import Typography from "../../typography"
 
 const style: { [key: string]: any } = {
   DropdownButton: (base: any, { open }: any) => ({
@@ -46,7 +48,8 @@ const style: { [key: string]: any } = {
 }
 
 const dropdownOptions = voterCenters.map(({ pueblo, JIPIsla }) => ({
-  value: `${pueblo}${JIPIsla ? " (Isla)" : ""}`,
+  value: `${pueblo} (Isla)`,
+  // value: `${pueblo}${JIPIsla ? " (Isla)" : ""}`,
 }))
 
 export function VoterCenters() {
@@ -70,49 +73,71 @@ export function VoterCenters() {
   })
 
   return (
-    <section>
-      <div className="md:hidden">
-        <Dropdown
-          placeholder="Pueblo"
-          id="dropdown"
-          searchable={true}
-          options={dropdownOptions}
-          selectedOption={
-            selectedTown.JIPIsla
-              ? `${selectedTown.pueblo} (Isla)`
-              : selectedTown.pueblo
-          }
-          setSelected={(t: string) => {
-            const selection = t.replace(" (Isla)", "")
+    <>
+      <Typography
+        id="juntas-de-inscripcion-permanentes"
+        tag="h2"
+        variant="h3"
+        className="uppercase text-center tracking-wide"
+      >
+        BUSCA DONDE PUEDES SACAR TU TARJETA ELECTORAL
+      </Typography>
+      <Typography
+        tag="h3"
+        variant="h2"
+        weight="base"
+        className="text-center mt-3"
+      >
+        Encuentra la Junta de Inscripción Permanente más cercana a ti e
+        inscríbete.
+      </Typography>
+      <div className="mt-12 bg-white shadow-md rounded">
+        <section>
+          <div className="md:hidden">
+            <Dropdown
+              placeholder="Pueblo"
+              id="dropdown"
+              searchable={true}
+              options={dropdownOptions}
+              selectedOption={
+                `${selectedTown.pueblo} (Isla)`
+                // selectedTown.JIPIsla
+                //   ? `${selectedTown.pueblo} (Isla)`
+                //   : selectedTown.pueblo
+              }
+              setSelected={(t: string) => {
+                const selection = t.replace(" (Isla)", "")
 
-            setSelectedTown(
-              voterCenters.filter(({ pueblo }) => pueblo === selection)[0]
-            )
-          }}
-          style={style}
-        />
-        <CenterInfo key={selectedTown.pueblo} town={selectedTown} />
-      </div>
-      <div className="hidden md:block">
-        <LetterList onSelect={setSelectedLetter} letter={selectedLetter} />
-        <animated.div
-          className="overflow-hidden"
-          style={{ height: props.height }}
-        >
-          <div
-            className="border-t border-separator lg:flex lg:p-10"
-            ref={ref}
-            style={{ maxHeight: 500 }}
-          >
-            <TownList
-              townList={townList}
-              onSelect={setSelectedTown}
-              town={selectedTown}
+                setSelectedTown(
+                  voterCenters.filter(({ pueblo }) => pueblo === selection)[0]
+                )
+              }}
+              style={style}
             />
             <CenterInfo key={selectedTown.pueblo} town={selectedTown} />
           </div>
-        </animated.div>
+          <div className="hidden md:block">
+            <LetterList onSelect={setSelectedLetter} letter={selectedLetter} />
+            <animated.div
+              className="overflow-hidden"
+              style={{ height: props.height }}
+            >
+              <div
+                className="border-t border-separator lg:flex lg:p-10"
+                ref={ref}
+                style={{ maxHeight: 500 }}
+              >
+                <TownList
+                  townList={townList}
+                  onSelect={setSelectedTown}
+                  town={selectedTown}
+                />
+                <CenterInfo key={selectedTown.pueblo} town={selectedTown} />
+              </div>
+            </animated.div>
+          </div>
+        </section>
       </div>
-    </section>
+    </>
   )
 }

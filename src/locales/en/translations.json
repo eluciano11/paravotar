@@ -35,7 +35,7 @@
     "voter-important-guide2": "If you have moved recently, it is important to renew your electoral card to exercise your vote in the municipality and corresponding Voting Center.",
     "voter-status-verify": "Check my status",
     "voter-status-note": "This link will take you to the page of the \"Comisión Estatal de  Elecciones\". There you can fill out the form that will tell you the status of your voter registry.",
-    "appointment-note": "Make your appointment to enroll, call now"
+    "register-to-vote-today": "Register to vote today at an Enrollment Center near you. No Appointment required."
   },
   "nav": {
     "sign-up": "Sign up",
@@ -43,7 +43,8 @@
     "make-appointment": "Make Appointment",
     "voter-status": "Voter Status",
     "voter-action": "Go out to vote",
-    "vote-type1": "Absentee and Early Voting"
+    "vote-type1": "Absentee and Early Voting",
+    "enrollment-centers": "Enrollment Centers"
   },
   "footer": {
     "contribute": "How can I contribute to the project?",
